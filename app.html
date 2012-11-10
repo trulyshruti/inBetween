@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>textSaver.js</title>
+  
+  <meta name="description" content="textSaver.js" />
+  <meta name="keywords" value="textsaver jquery plugin javascript" />
+  <script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+  
+</head>
+<body>
+	<script src="js/textSaver-0.1.1.js"></script>
+  <script>
+  $(document).ready(function() {
+  	$('#sample_form').textSaver();
+  });
+  </script>
+  <script>
+  $(document).ready(function() {
+  	$('#sample_form2').textSaver();
+  });
+  </script>
+	<div id="top">
+		<!-- <h1>App</h1> -->
+		<!-- <p>Name: </p> -->
+		<form id="sample_form" method="post" action="?submitted">
+			<label for="textarea1">Name: </label>
+			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
+			<input type="submit" value="Clear" />
+			<!-- <label>Type the above, then click to make the call!</label> -->
+		</form>
+		<!-- <p>Number: </p> -->
+		<form id="sample_form2" method="post" action="?submitted">
+			<label for="textarea1">Tel: </label>
+			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
+			<input type="submit" value="Clear" />
+			<!-- <label>Type the above, then click to make the call!</label> -->
+		</form>
+	</div>
+</body>
+</html>

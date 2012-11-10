@@ -41,15 +41,14 @@
 		</form>
 	</div>
 	
-	<div id="names">
-	</div>
-	<script src="js/textSaver-0.1.1.js"></script>
+	<div id="names"></div>
 	<script>
 		// var lat = 40.7;
 		// var long = -74;
-		var lat = 48;
-		var long = 10;
-$.getJSON('https://api.foursquare.com/v2/venues/search?ll='+lat+','+long+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
+		var lat = -26.45;
+		var long = 97.19;
+		var quer = 'mcdonalds';
+$.getJSON('https://api.foursquare.com/v2/venues/search?ll='+lat+','+long+'&query='+quer+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
 			function(data) {
 				$.each(data.response.venues, function(i,venues){
 					// content = '<p>' + venues.name + '</p>';
@@ -71,9 +70,6 @@ $.getJSON('https://api.foursquare.com/v2/venues/search?ll='+lat+','+long+'&clien
 					}
 					if(venues.location.postalCode != null) {
 						content += ' &nbsp;' + venues.location.postalCode + '';
-					}
-					if(venues.location.distance != null) {
-						content += '<br /> &nbsp;' + venues.location.distance + '<br />';
 					}
 					if(venues.contact.phone != null) {
 						content += '&nbsp;' + venues.location.phone + '<br />';

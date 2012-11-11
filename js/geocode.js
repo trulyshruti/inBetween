@@ -11,7 +11,7 @@ function getLocs(first, second, point) {
 		urlFirst += yourLoc;
 		urlFirst += '&appid=&flags=J';
 
-	    function getLat(address) {
+	    function getLati(address) {
 	    	var geocoder = new google.maps.Geocoder();
 			geocoder.geocode( { 'address': address}, function(results, status) {
 
@@ -23,7 +23,7 @@ function getLocs(first, second, point) {
 			}); 
 		}
 
-		function getLon(address) {
+		function getLongi(address) {
 	    	var geocoder = new google.maps.Geocoder();
 			geocoder.geocode( { 'address': address}, function(results, status) {
 
@@ -35,14 +35,14 @@ function getLocs(first, second, point) {
 			}); 
 		}
 
-		var yourLat = getLat(first);
-		var otherLat = getLat(second);
+		var yourLat = getLati(first);
+		var otherLat = getLati(second);
 
     	var lat = (yourLat + otherLat)/2;
     	console.log(lat);
 
-		var yourLon = getLon(first);
-		var otherLon = getLon(second);
+		var yourLon = getLongi(first);
+		var otherLon = getLongi(second);
 
     	var lon = (yourLon + otherLon)/2;
     	console.log(lon);

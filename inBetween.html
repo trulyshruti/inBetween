@@ -21,16 +21,18 @@
  <script> 
     $(document).ready(function() { 
         $('#your_loc').ajaxForm(function() {
-        });
-	}); 
+        	});
+		}); 
 
     function getLat(address) {
         if (address) {
+			// console.log(address);
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
 						var lati = results[0].geometry.location.lat();
+						console.log(lati);
 						if (lati === NaN || lati === null)
 							// error('Result of Geocoding is NaN or null');
 							return 0;
@@ -55,11 +57,13 @@
 
     function getLon(address) {
         if (address) {
-            var geocoder = new google.maps.Geocoder();
+            // console.log(address);
+			var geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
 						var longi = results[0].geometry.location.lng();
+						console.log(longi);
 						if (longi === NaN || longi === null)
 							// error('Result of Geocoding is NaN or null');
 							return 0;
@@ -69,17 +73,61 @@
                         // error('Google did not return any results.');
 						return 0;
                     }
-                } else {
-                    // error("Reverse Geocoding failed due to: " + status);
-					return 0;
-                }
-            });
-        }
-        else {
-            // error('Please enter an address');
-			return 0;
+	                } else {
+	                    // error("Reverse Geocoding failed due to: " + status);
+						return 0;
+                	}
+            	});
+        	}
+        	else {
+            	// error('Please enter an address');
+				return 0;
+    		}
     	}
-    }
+		
+		function formSubmit() {
+			var yours = '';
+			var other = '';
+			var interest = '';
+
+				yours = document.getElementById("yourPlace").value;
+				other = document.getElementById("otherPlace").value;
+				interest = document.getElementById("interestType").value;
+
+				findLatLong(yours, other, interest);
+			}
+
+		function findLatLong(yours, other, interest) {
+			var latitude = 0;
+			var longitude = 0;
+
+			var yourLoc = yours;
+			var otherLoc = other;
+			var poi = interest;
+
+			var latitude = 0;
+			var longitude = 0;
+
+			var yourLat = getLat(yourLoc);
+			// console.log(yourLat);
+			var otherLat = getLat(otherLoc);
+			// console.log(otherLat);
+
+			var yourLon = getLon(yourLoc);
+			// console.log(yourLon);
+			var otherLon = getLon(otherLoc);
+			// console.log(otherLon);
+
+			latitude = (yourLat + otherLat)/2;
+			console.log(latitude);
+
+			longitude = (yourLon + otherLon)/2;
+			console.log(longitude);
+
+			printLocs(latitude, longitude, interest);
+			// printLocs(40.5592,-7,4.3164,'');
+	    }
+
  </script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -100,46 +148,6 @@
 			</br>
 		</center>
 	</div>
-
-	<script>
-		var yours = '';
-		var other = '';
-		var interst = '';
-
-		var latitude = 0;
-		var longitude = 0;
-
-		function formSubmit() {
-			yours = document.getElementById("yourPlace").value;
-			other = document.getElementById("otherPlace").value;
-			interest = document.getElementById("interestType").value;
-
-			var yourLoc = yours;
-			var otherLoc = other;
-			var poi = interest;
-
-			var latitude = 0;
-			var longitude = 0;
-
-			var yourLat = getLat(yourLoc);
-			var otherLat = getLat(otherLoc);
-
-			var yourLon = getLon(yourLoc);
-			var otherLon = getLon(otherLoc);
-
-			latitude = (yourLat + otherLat)/2;
-    		console.log(latitude);
-
-    		longitude = (yourLon + otherLon)/2;
-    		console.log(longitude);
-
-    		printLocs(latitude, longitude, interest);
-
-			// getLocs(yours, interest, other);
-			// printLocs(40.5592,-7,4.3164,'');
-		}
-
-	</script>
 
 	<div id="top">
 		<center>

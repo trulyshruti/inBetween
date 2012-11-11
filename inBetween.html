@@ -15,60 +15,51 @@
 
  <script> 
     $(document).ready(function() { 
+
 	}); 
 
-    function getLat(address) {
+    function getLat(address, callback) {
         if (address) {
 			// console.log(address);
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'address': address }, function (results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
+                var result = 0;
+				if (status == google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
 						var lati = results[0].geometry.location.lat();
 						console.log(lati);
-						return lati;
-                    } else {
-                        // error('Google did not return any results.');
-						return 0;
+						result = lati;
                     }
- 
-                } else {
-                    // error("Reverse Geocoding failed due to: " + status);
-					return 0;
-                }
+				}
+				callback(result);
             });
         }
         else {
-            // error('Please enter an address');
-			return 0;
+			callback(0);
     	}
     }
 
-    function getLon(address) {
+    function getLon(address,callback) {
         if (address) {
             // console.log(address);
 			var geocoder = new google.maps.Geocoder();
             geocoder.geocode({ 'address': address }, function (results, status) {
+				var result = 0;
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (results[0]) {
 						var longi = results[0].geometry.location.lng();
 						console.log(longi);
-						return longi;
-                    } else {
-                        // error('Google did not return any results.');
-						return 0;
+						result = longi;
                     }
-	                } else {
-	                    // error("Reverse Geocoding failed due to: " + status);
-						return 0;
-                	}
-            	});
+				}
+				callback(result);
+            });
         	}
-        	else {
-            	// error('Please enter an address');
-				return 0;
-    		}
-    	}
+        else {
+           	// error('Please enter an address');
+			callback(0);
+		}
+    }
 		
 		function formSubmit() {
 			var yours = '';
@@ -93,26 +84,32 @@
 			var latitude = 0;
 			var longitude = 0;
 
-			var yourLat = getLat(yourLoc);
-			var otherLat = getLat(otherLoc);
+			getLat(yourLoc, function(yourLat) {
+				getLat(otherLoc, function(otherLat) {
+					getLon(yourLoc, function(yourLon) {
+						getLon(otherLoc, function(otherLon) {
 
-			console.log(yourLat);
-			console.log(otherLat);
+							console.log(yourLat);
+							console.log(otherLat);
 
-			var yourLon = getLon(yourLoc);
-			var otherLon = getLon(otherLoc);
 			
-			console.log(yourLon);
-			console.log(otherLon);
+							console.log(yourLon);
+							console.log(otherLon);
 
-			latitude = (yourLat + otherLat)/2;
-			// console.log(latitude);
+							latitude = (yourLat + otherLat)/2;
+							 console.log(latitude);
 
-			longitude = (yourLon + otherLon)/2;
-			// console.log(longitude);
+							longitude = (yourLon + otherLon)/2;
+							 console.log(longitude);
 
-			printLocs(latitude, longitude, interest);
-			// printLocs(40.5592,-7,4.3164,'');
+							printLocs(latitude, longitude, interest);
+							// printLocs(40.5592,-7,4.3164,'');
+
+						});
+					});
+				});
+			});
+
 	    }
 
  </script>

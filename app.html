@@ -138,18 +138,23 @@
 
 	<div id="top">
 		<center>
+		// input form 
 		<form id="your_loc" method="post" action="javascript:formSubmit()">
 			<label for="yourPlace">Where are you now? </label>
 			<input type="text" id="yourPlace" name="yourPlace" value="Princeton University" size="25" maxLength="160"></input>
 			<br />
+			// input friend's place
 			<label for="otherPlace">Where's your friend? </label>
 			<input type="text" id="otherPlace" name="otherPlace" value="Columbia University" size="25" maxLength="160"></input>
 			<br />
+			// input place of interest
 			<label for="interestType">Place of interest? </label>
 			<input type="text" id="interestType" name="interestType" size="25" maxLength="160"></input>
 			<br /> <br />
+			// Gelocation button to find you; uses geolocation to track city and state
 			<input type="button" id="locate" name="locate" value="Find me!" onclick="alert('You are in Princeton, NJ');" />
 			<br />
+			// Submit button to see the places of interest
 			<input type="submit" id="submit" name="submit" value="Let's go!" />
 			<br />
 		</form>

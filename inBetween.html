@@ -7,6 +7,8 @@
   
   <meta name="description" content="inBetween" />
   <meta name="keywords" value="inBetween webapp HTML5 jquery geolocation javascript" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
 
   <script type="text/javascript" src="js/jquery.min.js"> </script>
   <script src="http://maps.google.com/maps/api/js?sensor=false"> </script>
@@ -175,8 +177,6 @@
 	}
  </script>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-
 </head>
 <body bgcolor="#D8D8D8">
 
@@ -206,11 +206,11 @@
 			<label for="interestType">Place of interest? </label>
 			<input type="text" id="interestType" name="interestType" size="25" maxLength="160"></input>
 			<br /> <br />
-			<input type="button" id="button" name="button" value="Find me!" onClick="findMe()">
+			<input class="button" type="button" id="button" name="button" value="Find me!" onClick="findMe()">
 			<br />
-			<input type="reset" id="reset" name="reset" value="Clear" onClick="clearForm()">
+			<input class="button" type="reset" id="reset" name="reset" value="Clear" onClick="clearForm()">
 			<br />
-			<input type="submit" id="submit" name="submit" value="Let's go!" />
+			<input class="button" type="submit" id="submit" name="submit" value="Let's go!" />
 			<br />
 		</form>
 		</center>
@@ -224,5 +224,6 @@
 
 	<div id="map_canvas"></div>
 	<div id="names"></div>
+
 </body>
 </html>

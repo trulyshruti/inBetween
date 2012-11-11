@@ -20,6 +20,102 @@
 	<script type="text/javascript" src="http:maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"> </script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
+		<script>
+		yours = 'Princeton University';
+		other = 'NYC';
+		interest = '';
+
+/*		function submitted(y,o,i) {
+			// getLocs(yours, other, interest);
+			// printLocs(yours, other, interest);
+
+			// yours = 'Princeton University';
+			// other = 'NYC';
+			// interest = '';
+
+			var yours = '';
+			var other = '';
+			var interest = '';
+
+			var values = {};
+			$.each($('#myForm').serializeArray(), function(i, field) {
+    			values[field.name] = field.value;
+			});
+
+			yours = values[0];
+			other = values[1];
+			interest = values[2]; 
+			console.log(yours);
+			printLocs(40.5592,-74.3164,'');
+		};*/
+
+		function formSubmit() {
+			$('#myForm').submit(function() {
+			    var $inputs = $('#myForm :input');
+
+			    var values = {};
+			    $inputs.each(function() {
+			        values[this.name] = $(this).val();
+			    });
+
+			    var your = values[0];
+			    var other = values[1];
+			    var point = values[2];
+
+			    console.log(your);
+
+			    // submitted(your, other, point);
+				printLocs(40.5592,-74.3164,'');
+			});
+		}
+
+	</script>
+
+
+	<script>
+		yours = 'Princeton University';
+		other = 'NYC';
+		interest = '';
+
+		function submitted() {
+			// getLocs(yours, other, interest);
+			// printLocs(yours, other, interest);
+
+			// yours = 'Princeton University';
+			// other = 'NYC';
+			// interest = '';
+
+			var yours = '';
+			var other = '';
+			var interest = '';
+
+			var values = {};
+			$.each($('#myForm').serializeArray(), function(i, field) {
+    			values[field.name] = field.value;
+			});
+
+			yours = values[0];
+			other = values[1];
+			interest = values[2]; 
+			console.log(yours);
+			printLocs(40.5592,-74.3164,'');
+		};
+
+		$('#myForm').submit(function() {
+		    // get all the inputs into an array.
+		    var $inputs = $('#myForm :input');
+
+		    // not sure if you wanted this, but I thought I'd add it.
+		    // get an associative array of just the values.
+		    var values = {};
+		    $inputs.each(function() {
+		        values[this.name] = $(this).val();
+		    });
+
+		});
+
+	</script>
+
 </head>
 <body>
 

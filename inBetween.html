@@ -20,7 +20,6 @@
 <script> 
         $(document).ready(function() { 
             $('#your_loc').ajaxForm(function() { 
-            	// 
             }); 
         }); 
 </script> 
@@ -43,35 +42,34 @@
 	</div>
 
 	<script>
-		yours = 'Princeton University';
-		other = 'NYC';
-		interest = '';
+		var yours = '';
+		var other = '';
+		var interst = '';
 
-		function submitted() {
-			// getLocs(yours, other, interest);
-			// printLocs(yours, other, interest);
+		function formSubmit() {
+			yours = document.getElementById("yourPlace").value;
+			other = document.getElementById("otherPlace").value;
+			interest = document.getElementById("interestType").value;
 
-			// yours = 'Princeton University';
-			// other = 'NYC';
-			// interest = '';
+			// getLocs(yours,interest,other);
 			printLocs(40.5592,-74.3164,'');
-		};
+		}
 
 	</script>
 
 	<div id="top">
 		<center>
-		<form id="your_loc" method="post" action="javascript:submitted()">
-			<label for="textarea1">Where are you now? </label>
-			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
+		<form id="your_loc" method="post" action="javascript:formSubmit()">
+			<label for="yourPlace">Where are you now? </label>
+			<input type="text" id="yourPlace" name="yourPlace" size="25" maxLength="160"></input>
 			<br />
-			<label for="textarea2">Where's your friend? </label>
-			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
+			<label for="otherPlace">Where's your friend? </label>
+			<input type="text" id="otherPlace" name="otherPlace" size="25" maxLength="160"></input>
 			<br />
-			<label for="textarea3">Place of interest? </label>
-			<textarea id="textarea3" name="textarea3" rows="1" cols="25"></textarea>
+			<label for="interestType">Place of interest? </label>
+			<input type="text" id="interestType" name="interestType" size="25" maxLength="160"></input>
 			<br />
-			<input type="submit" value="Let's go!" />
+			<input type="submit" id="submit" name="submit" value="Let's go!" />
 			<br />
 		</form>
 		</center>

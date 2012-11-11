@@ -7,59 +7,26 @@ function getLocs(first, second, point) {
 		var latitude = 0;
 		var longitude = 0;
 
-		function getLat(address) {
-			
-			var geo = new google.maps.Geocoder;
-			geo.geocode({'address':address},function(results, status){
-    			if (status == google.maps.GeocoderStatus.OK) {              
-        			latitude = results[0].geometry.location.lat();
-    			}
-			});
-			return latitude;
-		}
+		var urlFirst = 'var url = http://maps.googleapis.com/maps/api/geocode?output=json&address=';
+		urlFirst += yourLoc;
+		urlFirst += '&sensor=false';
 
-		function getLon(address) {
-			
-			var geo = new google.maps.Geocoder;
-			geo.geocode({'address':address},function(results, status){
-    			if (status == google.maps.GeocoderStatus.OK) {              
-        			longitude = results[0].geometry.location.lng();
-    			}
-			});
-			return longitude;
-		}
-/*
-    	function getLat(address) {
-    		var map = new GMap2(document.getElementById("map_canvas"));
-			var geocoder = new GClientGeocoder();
-			var latitude = 0;
-			var longitude = 0;
-			geocoder.getLatLng(address, function(point) {
-         	latitude = point.y;
-         	longitude = point.x;  
-         	});
-         	return latitude;
-    	}
+		var urlSecond = 'var url = http://maps.googleapis.com/maps/api/geocode?output=json&address=';
+		urlSecond += otherLoc;
+		urlSecond += '&sensor=false';
 
-    	function getLon(address) {
-    		var map = new GMap2(document.getElementById("map_canvas"));
-			var geocoder = new GClientGeocoder();
-			var latitude = 0;
-			var longitude = 0;
-			geocoder.getLatLng(address, function(point) {
-         	latitude = point.y;
-         	longitude = point.x;  
-         	});
-         	return longitude;
-    	}*/
+		var firstLoc = $.getJSON(urlFirst);
+		var secondLoc = $.getJSON(urlSecond);
 
-    	var yourLat = getLat(yourLoc);
-    	var otherLat = getLat(otherLoc);
+    	var yourLat = firstLoc.geometry.location.lat;
+    	var otherLat = secondLoc.geometry.location.lat;
+
     	var lat = (yourLat + otherLat)/2;
     	// console.log(lat);
 
-    	var yourLon = getLon(yourLoc);
-    	var otherLon = getLon(otherLoc);
+    	var yourLon = firstLoc.geometry.location.lng;
+    	var otherLon = secondLoc.geometry.location.lng;
+
     	var lon = (yourLon + otherLon)/2;
     	// console.log(lon);
 

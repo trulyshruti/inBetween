@@ -10,20 +10,20 @@
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
 
-  <!-- <script type="text/javascript" src="js/jquery.ba-bbq.js"></script>
+<script type="text/javascript" src="js/jquery.ba-bbq.js"></script>
   <script type="text/javascript" src=""></script>
 
   <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+  src="https:maps.googleapis.com/maps/api/js?key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css" /> 
 
-	<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"> </script>
+	<script type="text/javascript" src="http:maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"> </script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 </head>
 <body>
 
-	<!-- <script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
+	<script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
 	<script>
 	  $(document).ready(function() {
 	  	$('#your_loc').textSaver();
@@ -33,10 +33,10 @@
 	  $(document).ready(function() {
 	  	$('#other_loc').textSaver();
 	  });
-	</script> -->
+	</script> 
 	
 	<div id="top">
-		<!-- <h1>App</h1> 
+		 <h1>App</h1> 
 		<p>Your place: </p>
 		<form id="your_loc" method="post" action="?submitted">
 			<label for="textarea1">Where are you now?: </label>
@@ -50,9 +50,9 @@
 			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
 			<input type="submit" value="Clear" />
 			<label>Type the above, then click to find the spot!</label> 
-		</form> -->
+		</form> 
 
-		<!-- <center>
+		 <center>
 		<form id="your_loc" method="post" action="?submitted">
 			<label for="textarea1">Where are you now?: </label>
 			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
@@ -67,36 +67,36 @@
 			<input type="submit" value="Clear" />
 			<br />
 		</form>
-		</center> -->
+		</center> 
 	</div>
 	
 	<div id="names"></div>
 
 
-	<!-- <script>
-		$.getJSON('https://api.foursquare.com/v2/venues/search?ll=40.7,-74&query=mcdonalds&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
+	 <script>
+		$.getJSON('https:api.foursquare.com/v2/venues/search?ll=40.7,-74&query=mcdonalds&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
 		    function(data) {
 		        $.each(data.response.venues, function(i,venues){
 		            content = '<p>' + venues.name + '</p>';
 		            $(content).appendTo("#names");
 		       });
 		});
-	</script> -->
+	</script> 
 
 	<script>
 
-		// var yourLoc = document.getElementById("textarea1").value;
-		// var otherLoc = document.getElementById("textarea2").value;
-		// var poi = document.getElementById("textarea3").value;
+		 var yourLoc = document.getElementById("textarea1").value;
+		 var otherLoc = document.getElementById("textarea2").value;
+		 var poi = document.getElementById("textarea3").value;
 
-		// var yourLoc = $("textarea1");
-		// var otherLoc = $("textarea2");
-		// var poi = $("textarea3");
+		 var yourLoc = $("textarea1");
+		 var otherLoc = $("textarea2");
+		 var poi = $("textarea3");
 
-		// var yourLoc = document.getElementById("textarea1").value;
-		// var otherLoc = document.getElementById("textarea2").value;
+		 var yourLoc = document.getElementById("textarea1").value;
+		 var otherLoc = document.getElementById("textarea2").value;
 
-		/* var yourLat = 41;
+		 var yourLat = 41;
     	if (yourLoc === '' || yourLoc === ' '  || yourLoc === null); {
     		yourLat = 0;
     	}
@@ -114,15 +114,15 @@
     	if (otherLon === '' || otherLon === ' ' || otherLon === null); {
     		otherLon = 0;
     	} 
-    	var lon = (yourLon + otherLon)/2; */
+    	var lon = (yourLon + otherLon)/2; 
 
-		// console.log('' + yourLoc + '' + otherLoc + '' + poi + '');
+		 console.log('' + yourLoc + '' + otherLoc + '' + poi + '');
 		
-		// var lat = 40.7;
-		// var long = -74;
-		// var lat = -26.45;
-		// var long = 97.19;
-		// var query = 'mcdonalds';
+		 var lat = 40.7;
+		 var long = -74;
+		 var lat = -26.45;
+		 var long = 97.19;
+		 var query = 'mcdonalds';
 
 		function getLat(address) {
     		var map = new GMap2(document.getElementById("map_canvas"));
@@ -160,13 +160,13 @@
 		var longi = (lon).toString();
 		var query = poi;
 
-		var url = 'https://api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
-		// console.log(url);
+		var url = 'https:api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
+		 console.log(url);
 		
 $.getJSON(url,
 			function(data) {
 				$.each(data.response.venues, function(i,venues){
-					// content = '<p>' + venues.name + '</p>';
+					 content = '<p>' + venues.name + '</p>';
 					content = '<center> <p> <br />';
 					if(venues.name != null) {
 						content += '&nbsp;' + venues.name + '<br />';
@@ -189,11 +189,108 @@ $.getJSON(url,
 					if(venues.contact.phone != null) {
 						content += '&nbsp;' + venues.location.phone + '<br />';
 					}
-					// content += '<br /><br />';
+					 content += '<br /><br />';
 					content += '</p> </center>';
 					$(content).appendTo("#names");
 			   });
 		});
+	</script>
+
+	<script>
+	function fsqLoc(first, second, point) {
+
+		var yourLoc = first;
+		var otherLoc = second;
+		var poi = point;
+
+		/* $("#textarea1").blur = function() { 
+    		yourLoc = this.value;
+    		console.log(yourLoc);
+    	}
+    	$("#textarea2").blur = function() { 
+    		otherLoc = this.value;
+    		console.log(otherLoc);
+    	}
+    	$("#textarea3").blur = function() { 
+    		poi = this.value;
+    		console.log(poi);
+    	} */
+
+    	function getLat(address) {
+    		var map = new GMap2(document.getElementById("map_canvas"));
+			var geocoder = new GClientGeocoder();
+			var latitude = 0;
+			var longitude = 0;
+			geocoder.getLatLng(address, function(point) {
+         	latitude = point.y;
+         	longitude = point.x;  
+         	});
+         	return latitude;
+    	}
+
+    	function getLon(address) {
+    		var map = new GMap2(document.getElementById("map_canvas"));
+			var geocoder = new GClientGeocoder();
+			var latitude = 0;
+			var longitude = 0;
+			geocoder.getLatLng(address, function(point) {
+         	latitude = point.y;
+         	longitude = point.x;  
+         	});
+         	return longitude;
+    	}
+
+    	var yourLat = getLat(yourLoc);
+    	var otherLat = getLat(otherLoc);
+    	var lat = (yourLat + otherLat)/2;
+    	// console.log(lat);
+
+    	var yourLon = getLon(yourLoc);
+    	var otherLon = getLon(otherLoc);
+    	var lon = (yourLon + otherLon)/2;
+    	// console.log(lon);
+
+		var lati = (lat).toString();
+		var longi = (lon).toString();
+		var query = poi;
+
+		var url = 'https://api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
+
+		$.getJSON(url,
+		    function(data) {
+		        $.each(data.response.venues, function(i,venues){
+		            content = '<center>';
+		            content += '<p> <br />';
+					if(venues.name != null) {
+						content += '&nbsp;' + venues.name + '<br />';
+					}
+					if(venues.location.address != null) {
+						content += '&nbsp;' + venues.location.address + '<br />';
+					}
+					if(venues.location.crossStreet != null) {
+						content += ' &nbsp;' + venues.location.crossStreet + '<br />';
+					}
+					if(venues.location.city != null) {
+						content += ' &nbsp;' + venues.location.city + ', ';
+					}
+					if(venues.location.state != null) {
+						content += ' &nbsp;' + venues.location.state + '';
+					}
+					if(venues.location.postalCode != null) {
+						content += ' &nbsp;' + venues.location.postalCode + '';
+					}
+					if(venues.location.distance != null) {
+						content += '<br /> &nbsp; Distance: ' + venues.location.distance + '<br />';
+					}
+					if(venues.contact.phone != null) {
+						content += '&nbsp;' + venues.location.phone + '<br />';
+					}
+					// content += '<br /><br />';
+					content += '</p> </center>';
+					$(content).appendTo("#names");
+		       });
+		});
+}
 	</script>
 </body>
 </html>

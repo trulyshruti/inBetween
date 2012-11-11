@@ -43,6 +43,7 @@
 		</center>
 	</div>
 	
+	<div id="map_canvas"></div>
 	<div id="names"></div>
 
 	<script>
@@ -88,12 +89,12 @@
          	return longitude;
     	}
 
-    	var yourLat = 41 // getLat(yourLoc);
-    	var otherLat = 40 // getLat(otherLoc);
+    	var yourLat = getLat(yourLoc);
+    	var otherLat = getLat(otherLoc);
     	var lat = (yourLat + otherLat)/2;
 
-    	var yourLon = -75 // getLon(yourLoc);
-    	var otherLon = -73 // getLon(otherLoc);
+    	var yourLon = getLon(yourLoc);
+    	var otherLon = getLon(otherLoc);
     	var lon = (yourLon + otherLon)/2;
 
 		var lati = (lat).toString();

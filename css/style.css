@@ -32,3 +32,7 @@
 p:first-letter {
    margin-left: 5em;
 }
+
+#map_canvas {
+	display:none;
+}

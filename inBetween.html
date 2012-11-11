@@ -20,8 +20,7 @@
 
  <script> 
     $(document).ready(function() { 
-        $('#your_loc').ajaxForm(function() {
-        	});
+        	// $('#your_loc').ajaxForm(function() {});
 		}); 
 
     function getLat(address) {
@@ -33,11 +32,7 @@
                     if (results[0]) {
 						var lati = results[0].geometry.location.lat();
 						console.log(lati);
-						if (lati === NaN || lati === null)
-							// error('Result of Geocoding is NaN or null');
-							return 0;
-						else
-							return lati;
+						return lati;
                     } else {
                         // error('Google did not return any results.');
 						return 0;
@@ -64,11 +59,7 @@
                     if (results[0]) {
 						var longi = results[0].geometry.location.lng();
 						console.log(longi);
-						if (longi === NaN || longi === null)
-							// error('Result of Geocoding is NaN or null');
-							return 0;
-						else
-							return longi;
+						return longi;
                     } else {
                         // error('Google did not return any results.');
 						return 0;
@@ -109,20 +100,20 @@
 			var longitude = 0;
 
 			var yourLat = getLat(yourLoc);
-			// console.log(yourLat);
+			console.log(yourLat);
 			var otherLat = getLat(otherLoc);
-			// console.log(otherLat);
+			console.log(otherLat);
 
 			var yourLon = getLon(yourLoc);
-			// console.log(yourLon);
+			console.log(yourLon);
 			var otherLon = getLon(otherLoc);
-			// console.log(otherLon);
+			console.log(otherLon);
 
 			latitude = (yourLat + otherLat)/2;
-			console.log(latitude);
+			// console.log(latitude);
 
 			longitude = (yourLon + otherLon)/2;
-			console.log(longitude);
+			// console.log(longitude);
 
 			printLocs(latitude, longitude, interest);
 			// printLocs(40.5592,-7,4.3164,'');

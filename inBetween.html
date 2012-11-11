@@ -8,48 +8,36 @@
   <meta name="description" content="textSaver.js" />
   <meta name="keywords" value="inBetween webapp HTML5 jquery geolocation javascript" />
 
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- <script type="text/javascript" src="js/jquery.ba-bbq.js"></script> -->
-  <script type="text/javascript" src=""></script>
+  <script type="text/javascript" src="js/jquery.min.js"> </script>
 
-  <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"> </script>
+
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 </head>
 <body>
 
-	<!-- <script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
-	<script>
-	  $(document).ready(function() {
-	  	$('#your_loc').textSaver();
-	  });
-	 </script>
-	 <script>
-	  $(document).ready(function() {
-	  	$('#other_loc').textSaver();
-	  });
-	</script>
-	<script>
-	  $(document).ready(function() {
-	  	$('#place_type').textSaver();
-	  });
-	</script> -->
+	<div id="head">
+		<center>
+			Tell us where you are, and where your friend is. <br />
+			We'll help you find cool places <strong><em>inBetween</em></strong> you! <br />
+			<br />
+		</center>
+	</div>
 
 	<div id="top">
 		<center>
 		<form id="your_loc" method="post" action="?submitted">
 			<label for="textarea1">Where are you now?: </label>
 			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
-			<input type="submit" value="Submit" />
 			<br />
 			<label for="textarea2">Where's your friend? </label>
 			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
-			<input type="submit" value="submit" />
 			<br />
 			<label for="textarea3">Place of interest? </label>
 			<textarea id="textarea3" name="textarea3" rows="1" cols="25"></textarea>
-			<input type="submit" value="Submit" />
+			<br />
+			<input type="submit" value="Let's go!" />
 			<br />
 		</form>
 		</center>
@@ -59,8 +47,8 @@
 
 	<script>
 
-		var yourLoc = '';
-		var otherLoc = '';
+		var yourLoc = 'Princeton University';
+		var otherLoc = 'NYC';
 		var poi = '';
 
 		/* $("#textarea1").blur = function() { 
@@ -100,12 +88,12 @@
          	return longitude;
     	}
 
-    	var yourLat = 41;
-    	var otherLat = 40;
+    	var yourLat = 41 // getLat(yourLoc);
+    	var otherLat = 40 // getLat(otherLoc);
     	var lat = (yourLat + otherLat)/2;
 
-    	var yourLon = -75;
-    	var otherLon = -73;
+    	var yourLon = -75 // getLon(yourLoc);
+    	var otherLon = -73 // getLon(otherLoc);
     	var lon = (yourLon + otherLon)/2;
 
 		var lati = (lat).toString();
@@ -117,7 +105,8 @@
 		$.getJSON(url,
 		    function(data) {
 		        $.each(data.response.venues, function(i,venues){
-		            content = '<center> <p> <br />';
+		            content = '<center>';
+		            content += '<p> <br />';
 					if(venues.name != null) {
 						content += '&nbsp;' + venues.name + '<br />';
 					}

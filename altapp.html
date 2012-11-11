@@ -5,116 +5,24 @@
   
   <title>inBetween</title>
   
-  <meta name="description" content="textSaver.js" />
+  <meta name="description" content="inBetween" />
   <meta name="keywords" value="inBetween webapp HTML5 jquery geolocation javascript" />
 
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"> </script>
+  <script type="text/javascript" src="js/jquery.form.js"> </script>
 
-<script type="text/javascript" src="js/jquery.ba-bbq.js"></script>
-  <script type="text/javascript" src=""></script>
+  <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"> </script>
 
-  <script type="text/javascript"
-  src="https:maps.googleapis.com/maps/api/js?key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css" /> 
+  <script type="text/javascript" src="js/fsqLoc.js"> </script>
 
-	<script type="text/javascript" src="http:maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true"> </script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
-		<script>
-		yours = 'Princeton University';
-		other = 'NYC';
-		interest = '';
-
-/*		function submitted(y,o,i) {
-			// getLocs(yours, other, interest);
-			// printLocs(yours, other, interest);
-
-			// yours = 'Princeton University';
-			// other = 'NYC';
-			// interest = '';
-
-			var yours = '';
-			var other = '';
-			var interest = '';
-
-			var values = {};
-			$.each($('#myForm').serializeArray(), function(i, field) {
-    			values[field.name] = field.value;
-			});
-
-			yours = values[0];
-			other = values[1];
-			interest = values[2]; 
-			console.log(yours);
-			printLocs(40.5592,-74.3164,'');
-		};*/
-
-		function formSubmit() {
-			$('#myForm').submit(function() {
-			    var $inputs = $('#myForm :input');
-
-			    var values = {};
-			    $inputs.each(function() {
-			        values[this.name] = $(this).val();
-			    });
-
-			    var your = values[0];
-			    var other = values[1];
-			    var point = values[2];
-
-			    console.log(your);
-
-			    // submitted(your, other, point);
-				printLocs(40.5592,-74.3164,'');
-			});
-		}
-
-	</script>
-
-
-	<script>
-		yours = 'Princeton University';
-		other = 'NYC';
-		interest = '';
-
-		function submitted() {
-			// getLocs(yours, other, interest);
-			// printLocs(yours, other, interest);
-
-			// yours = 'Princeton University';
-			// other = 'NYC';
-			// interest = '';
-
-			var yours = '';
-			var other = '';
-			var interest = '';
-
-			var values = {};
-			$.each($('#myForm').serializeArray(), function(i, field) {
-    			values[field.name] = field.value;
-			});
-
-			yours = values[0];
-			other = values[1];
-			interest = values[2]; 
-			console.log(yours);
-			printLocs(40.5592,-74.3164,'');
-		};
-
-		$('#myForm').submit(function() {
-		    // get all the inputs into an array.
-		    var $inputs = $('#myForm :input');
-
-		    // not sure if you wanted this, but I thought I'd add it.
-		    // get an associative array of just the values.
-		    var values = {};
-		    $inputs.each(function() {
-		        values[this.name] = $(this).val();
-		    });
-
-		});
-
-	</script>
+<script> 
+        $(document).ready(function() { 
+            $('#your_loc').ajaxForm(function() { 
+            }); 
+        }); 
+</script> 
 
 </head>
 <body>
@@ -133,302 +41,40 @@
 		</center>
 	</div>
 
-
-	<script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
 	<script>
-	  $(document).ready(function() {
-	  	$('#your_loc').textSaver();
-	  });
-	 </script>
-	 <script>
-	  $(document).ready(function() {
-	  	$('#other_loc').textSaver();
-	  });
-	</script> 
+		var yours = '';
+		var other = '';
+		var interst = '';
 
-	<script>
-		yours = 'Princeton University';
-		other = 'NYC';
-		interest = '';
+		function formSubmit() {
+			yours = document.getElementById("yourPlace").value;
+			other = document.getElementById("otherPlace").value;
+			interest = document.getElementById("interestType").value;
 
-		function submitted() {
-			// getLocs(yours, other, interest);
-			// printLocs(yours, other, interest);
-
-			// yours = 'Princeton University';
-			// other = 'NYC';
-			// interest = '';
-			// printLocs(40.5592,-74.3164,'');
-		};
+			// getLocs(yours,interest,other);
+			printLocs(40.5592,-74.3164,'');
+		}
 
 	</script>
-	
-	<div id="top">
-		 <h1>App</h1> 
-		<p>Your place: </p>
-		<form id="your_loc" method="post" action="?submitted">
-			<label for="textarea1">Where are you now?: </label>
-			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
-			<label>Type the above, then click to find the spot!</label>
-		</form>
-		<p>Other place: </p>
-		<form id="other_loc" method="post" action="?submitted">
-			<label for="textarea2">Where's your friend? </label>
-			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
-			<label>Type the above, then click to find the spot!</label> 
-		</form> 
 
-		 <center>
-		<form id="your_loc" method="post" action="?submitted">
-			<label for="textarea1">Where are you now?: </label>
-			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
+	<div id="top">
+		<center>
+		<form id="your_loc" method="post" action="javascript:formSubmit()">
+			<label for="yourPlace">Where are you now? </label>
+			<input type="text" id="yourPlace" name="yourPlace" size="25" maxLength="160"></input>
 			<br />
-			<label for="textarea2">Where's your friend? </label>
-			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
+			<label for="otherPlace">Where's your friend? </label>
+			<input type="text" id="otherPlace" name="otherPlace" size="25" maxLength="160"></input>
 			<br />
-			<label for="textarea3">Place of interest? </label>
-			<textarea id="textarea3" name="textarea3" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
+			<label for="interestType">Place of interest? </label>
+			<input type="text" id="interestType" name="interestType" size="25" maxLength="160"></input>
+			<br />
+			<input type="submit" id="submit" name="submit" value="Let's go!" />
 			<br />
 		</form>
-		</center> 
+		</center>
 	</div>
 	
-	<div id="names"></div>
-
-
-	 <script>
-		$.getJSON('https:api.foursquare.com/v2/venues/search?ll=40.7,-74&query=mcdonalds&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
-		    function(data) {
-		        $.each(data.response.venues, function(i,venues){
-		            content = '<p>' + venues.name + '</p>';
-		            $(content).appendTo("#names");
-		       });
-		});
-	</script> 
-
-	<script>
-
-		 var yourLoc = document.getElementById("textarea1").value;
-		 var otherLoc = document.getElementById("textarea2").value;
-		 var poi = document.getElementById("textarea3").value;
-
-		 var yourLoc = $("textarea1");
-		 var otherLoc = $("textarea2");
-		 var poi = $("textarea3");
-
-		 var yourLoc = document.getElementById("textarea1").value;
-		 var otherLoc = document.getElementById("textarea2").value;
-
-		 var yourLat = 41;
-    	if (yourLoc === '' || yourLoc === ' '  || yourLoc === null); {
-    		yourLat = 0;
-    	}
-    	var otherLat = 40;
-    	if (otherLoc === '' || otherLoc === ' ' || otherLoc === null); {
-    		otherLat = 0;
-    	} 
-    	var lat = (yourLat + otherLat)/2;
-
-    	var yourLon = -75;
-    	if (yourLon === '' || yourLon === ' ' || yourLon === null); {
-    		yourLon = 0;
-    	} 
-    	var otherLon = -73;
-    	if (otherLon === '' || otherLon === ' ' || otherLon === null); {
-    		otherLon = 0;
-    	} 
-    	var lon = (yourLon + otherLon)/2; 
-
-		 console.log('' + yourLoc + '' + otherLoc + '' + poi + '');
-		
-		 var lat = 40.7;
-		 var long = -74;
-		 var lat = -26.45;
-		 var long = 97.19;
-		 var query = 'mcdonalds';
-
-		function getLat(address) {
-    		var map = new GMap2(document.getElementById("map_canvas"));
-			var geocoder = new GClientGeocoder();
-			var latitude = 0;
-			var longitude = 0;
-			geocoder.getLatLng(address, function(point) {
-         	latitude = point.y;
-         	longitude = point.x;  
-         	});
-         	return latitude;
-    	}
-
-    	function getLon(address) {
-    		var map = new GMap2(document.getElementById("map_canvas"));
-			var geocoder = new GClientGeocoder();
-			var latitude = 0;
-			var longitude = 0;
-			geocoder.getLatLng(address, function(point) {
-         	latitude = point.y;
-         	longitude = point.x;  
-         	});
-         	return longitude;
-    	}
-
-    	var yourLat = 41;
-    	var otherLat = 40;
-    	var lat = (yourLat + otherLat)/2;
-
-    	var yourLon = -75;
-    	var otherLon = -73;
-    	var lon = (yourLon + otherLon)/2;
-
-		var lati = (lat).toString();
-		var longi = (lon).toString();
-		var query = poi;
-
-		var url = 'https:api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
-		 console.log(url);
-		
-$.getJSON(url,
-			function(data) {
-				$.each(data.response.venues, function(i,venues){
-					 content = '<p>' + venues.name + '</p>';
-					content = '<center> <p> <br />';
-					if(venues.name != null) {
-						content += '&nbsp;' + venues.name + '<br />';
-					}
-					if(venues.location.address != null) {
-						content += '&nbsp;' + venues.location.address + '<br />';
-					}
-					if(venues.location.crossStreet != null) {
-						content += ' &nbsp;' + venues.location.crossStreet + '<br />';
-					}
-					if(venues.location.city != null) {
-						content += ' &nbsp;' + venues.location.city + ', ';
-					}
-					if(venues.location.state != null) {
-						content += ' &nbsp;' + venues.location.state + '';
-					}
-					if(venues.location.postalCode != null) {
-						content += ' &nbsp;' + venues.location.postalCode + '';
-					}
-					if(venues.contact.phone != null) {
-						content += '&nbsp;' + venues.location.phone + '<br />';
-					}
-					 content += '<br /><br />';
-					content += '</p> </center>';
-					$(content).appendTo("#names");
-			   });
-		});
-	</script>
-
-	<script>
-
-function getLocs(first, second, point) {
-
-		var yourLoc = first;
-		var otherLoc = second;
-		var poi = point;
-
-		/* $("#textarea1").blur = function() { 
-    		yourLoc = this.value;
-    		console.log(yourLoc);
-    	}
-    	$("#textarea2").blur = function() { 
-    		otherLoc = this.value;
-    		console.log(otherLoc);
-    	}
-    	$("#textarea3").blur = function() { 
-    		poi = this.value;
-    		console.log(poi);
-    	} */
-
-    	function getLat(address) {
-    		var map = new GMap2(document.getElementById("map_canvas"));
-			var geocoder = new GClientGeocoder();
-			var latitude = 0;
-			var longitude = 0;
-			geocoder.getLatLng(address, function(point) {
-         	latitude = point.y;
-         	longitude = point.x;  
-         	});
-         	return latitude;
-    	}
-
-    	function getLon(address) {
-    		var map = new GMap2(document.getElementById("map_canvas"));
-			var geocoder = new GClientGeocoder();
-			var latitude = 0;
-			var longitude = 0;
-			geocoder.getLatLng(address, function(point) {
-         	latitude = point.y;
-         	longitude = point.x;  
-         	});
-         	return longitude;
-    	}
-
-    	var yourLat = getLat(yourLoc);
-    	var otherLat = getLat(otherLoc);
-    	var lat = (yourLat + otherLat)/2;
-    	// console.log(lat);
-
-    	var yourLon = getLon(yourLoc);
-    	var otherLon = getLon(otherLoc);
-    	var lon = (yourLon + otherLon)/2;
-    	// console.log(lon);
-
-		var lati = (lat).toString();
-		var longi = (lon).toString();
-		var query = poi;
-
-		printLocs(lati, longi, point);
-}
-
-function printLocs(lati, longi, point){
-	var url = 'https://api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
-
-		$.getJSON(url,
-		    function(data) {
-		        $.each(data.response.venues, function(i,venues){
-		            content = '<center>';
-		            content += '<p> <br />';
-					if(venues.name != null) {
-						content += '&nbsp;' + venues.name + '<br />';
-					}
-					if(venues.location.address != null) {
-						content += '&nbsp;' + venues.location.address + '<br />';
-					}
-					if(venues.location.crossStreet != null) {
-						content += ' &nbsp;' + venues.location.crossStreet + '<br />';
-					}
-					if(venues.location.city != null) {
-						content += ' &nbsp;' + venues.location.city + ', ';
-					}
-					if(venues.location.state != null) {
-						content += ' &nbsp;' + venues.location.state + '';
-					}
-					if(venues.location.postalCode != null) {
-						content += ' &nbsp;' + venues.location.postalCode + '';
-					}
-					if(venues.location.distance != null) {
-						content += '<br /> &nbsp; Distance: ' + venues.location.distance + '<br />';
-					}
-					if(venues.contact.phone != null) {
-						content += '&nbsp;' + venues.location.phone + '<br />';
-					}
-					// content += '<br /><br />';
-					content += '</p> </center>';
-					$(content).appendTo("#names");
-		       });
-		});
-}
-
-	</script>
-	printLocs(40.5,-75,'');
-	printLocs(40.5592,-74.3164,'');
-
 	<div id="head">
 		<center>
 			<br /> Now check out the awesome places nearby! <br />

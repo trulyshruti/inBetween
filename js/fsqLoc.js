@@ -4,19 +4,6 @@ function getLocs(first, second, point) {
 		var otherLoc = second;
 		var poi = point;
 
-		/* $("#textarea1").blur = function() { 
-    		yourLoc = this.value;
-    		console.log(yourLoc);
-    	}
-    	$("#textarea2").blur = function() { 
-    		otherLoc = this.value;
-    		console.log(otherLoc);
-    	}
-    	$("#textarea3").blur = function() { 
-    		poi = this.value;
-    		console.log(poi);
-    	} */
-
     	function getLat(address) {
     		var map = new GMap2(document.getElementById("map_canvas"));
 			var geocoder = new GClientGeocoder();
@@ -90,7 +77,6 @@ function printLocs(lati, longi, query){
 					if(venues.contact.phone != null) {
 						content += '&nbsp;' + venues.location.phone + '<br />';
 					}
-					// content += '<br /><br />';
 					content += '</p> </center>';
 					$(content).appendTo("#names");
 		       });

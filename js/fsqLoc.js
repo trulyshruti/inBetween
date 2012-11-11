@@ -1,4 +1,4 @@
-function fsqLoc(first, second, point) {
+function getLocs(first, second, point) {
 
 		var yourLoc = first;
 		var otherLoc = second;

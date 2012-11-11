@@ -11,16 +11,75 @@
   <script type="text/javascript" src="js/jquery.min.js"> </script>
   <script type="text/javascript" src="js/jquery.form.js"> </script>
 
-  <script type='text/javascript' src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true'> </script>
+  <!-- <script type='text/javascript' src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true'> </script> -->
+
+  <script src="http://maps.google.com/maps/api/js?sensor=false"> </script>
 
   <script type="text/javascript" src="js/geocode.js"> </script>
   <script type="text/javascript" src="js/findPlaces.js"> </script>
 
  <script> 
-        $(document).ready(function() { 
-            $('#your_loc').ajaxForm(function() {
-            });
+    $(document).ready(function() { 
+        $('#your_loc').ajaxForm(function() {
+        });
 	}); 
+
+    function getLat(address) {
+        if (address) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+						var lati = results[0].geometry.location.lat();
+						if (lati === NaN || lati === null)
+							// error('Result of Geocoding is NaN or null');
+							return 0;
+						else
+							return lati;
+                    } else {
+                        // error('Google did not return any results.');
+						return 0;
+                    }
+ 
+                } else {
+                    // error("Reverse Geocoding failed due to: " + status);
+					return 0;
+                }
+            });
+        }
+        else {
+            // error('Please enter an address');
+			return 0;
+    	}
+    }
+
+    function getLon(address) {
+        if (address) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+						var longi = results[0].geometry.location.lng();
+						if (longi === NaN || longi === null)
+							// error('Result of Geocoding is NaN or null');
+							return 0;
+						else
+							return longi;
+                    } else {
+                        // error('Google did not return any results.');
+						return 0;
+                    }
+                } else {
+                    // error("Reverse Geocoding failed due to: " + status);
+					return 0;
+                }
+            });
+        }
+        else {
+            // error('Please enter an address');
+			return 0;
+    	}
+    }
  </script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -47,15 +106,37 @@
 		var other = '';
 		var interst = '';
 
+		var latitude = 0;
+		var longitude = 0;
+
 		function formSubmit() {
 			yours = document.getElementById("yourPlace").value;
 			other = document.getElementById("otherPlace").value;
 			interest = document.getElementById("interestType").value;
 
-			console.log(yours);
+			var yourLoc = yours;
+			var otherLoc = other;
+			var poi = interest;
 
-			getLocs(yours, interest, other);
-			// printLocs(40.5592,-74.3164,'');
+			var latitude = 0;
+			var longitude = 0;
+
+			var yourLat = getLat(yourLoc);
+			var otherLat = getLat(otherLoc);
+
+			var yourLon = getLon(yourLoc);
+			var otherLon = getLon(otherLoc);
+
+			latitude = (yourLat + otherLat)/2;
+    		console.log(latitude);
+
+    		longitude = (yourLon + otherLon)/2;
+    		console.log(longitude);
+
+    		printLocs(latitude, longitude, interest);
+
+			// getLocs(yours, interest, other);
+			// printLocs(40.5592,-7,4.3164,'');
 		}
 
 	</script>

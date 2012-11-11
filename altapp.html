@@ -23,6 +23,21 @@
 </head>
 <body>
 
+	<div id="logo">
+		<center>
+			<h1>inBetween</h1>
+		</center>
+	</div>
+
+	<div id="head">
+		<center>
+			Tell us where you are, and where your friend is. <br />
+			We'll help you find cool places <strong><em>inBetween</em></strong> you! <br />
+			</br>
+		</center>
+	</div>
+
+
 	<script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
 	<script>
 	  $(document).ready(function() {
@@ -34,6 +49,23 @@
 	  	$('#other_loc').textSaver();
 	  });
 	</script> 
+
+	<script>
+		yours = 'Princeton University';
+		other = 'NYC';
+		interest = '';
+
+		function submitted() {
+			// getLocs(yours, other, interest);
+			// printLocs(yours, other, interest);
+
+			// yours = 'Princeton University';
+			// other = 'NYC';
+			// interest = '';
+			// printLocs(40.5592,-74.3164,'');
+		};
+
+	</script>
 	
 	<div id="top">
 		 <h1>App</h1> 
@@ -300,5 +332,14 @@ function printLocs(lati, longi, point){
 	</script>
 	printLocs(40.5,-75,'');
 	printLocs(40.5592,-74.3164,'');
+
+	<div id="head">
+		<center>
+			<br /> Now check out the awesome places nearby! <br />
+		</center>
+	</div>
+
+	<div id="map_canvas"></div>
+	<div id="names"></div>
 </body>
 </html>

@@ -33,9 +33,26 @@
 		</center>
 	</div>
 
+	<script>
+		yours = 'Princeton University';
+		other = 'NYC';
+		interest = '';
+
+		function submitted() {
+			// getLocs(yours, other, interest);
+			// printLocs(yours, other, interest);
+
+			// yours = 'Princeton University';
+			// other = 'NYC';
+			// interest = '';
+			// printLocs(40.5592,-74.3164,'');
+		};
+
+	</script>
+
 	<div id="top">
 		<center>
-		<form id="your_loc" method="post">
+		<form id="your_loc" method="post" action="javascript:submitted()">
 			<label for="textarea1">Where are you now? </label>
 			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
 			<br />
@@ -59,16 +76,5 @@
 
 	<div id="map_canvas"></div>
 	<div id="names"></div>
-
-	<script>
-		yours = 'Princeton University';
-		other = 'NYC';
-		interest = '';
-
-		// getLocs(yours, other, interest);
-		// printLocs(yours, other, interest);
-		printLocs(40.5592,-74.3164,'');
-
-	</script>
 </body>
 </html>

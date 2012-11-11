@@ -35,7 +35,7 @@
 
 	<div id="top">
 		<center>
-		<form id="your_loc" method="post" action="?submitted">
+		<form id="your_loc" method="post">
 			<label for="textarea1">Where are you now? </label>
 			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
 			<br />
@@ -61,12 +61,13 @@
 	<div id="names"></div>
 
 	<script>
-	yours = 'Princeton University';
-	other = 'NYC';
-	interest = '';
+		yours = 'Princeton University';
+		other = 'NYC';
+		interest = '';
 
-	getLocs(yours, other, interest);
-	// printLocs(40.5,-75,'');
+		// getLocs(yours, other, interest);
+		// printLocs(yours, other, interest);
+		printLocs(40.5592,-74.3164,'');
 
 	</script>
 </body>

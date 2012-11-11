@@ -54,18 +54,28 @@
 			callback(0);
 		}
     }
+
+    function findMe() {
+    	// alert('You are in Princeton, NJ. \nLatitude: 40.3487° N, Longitude: 74.6593° W');
+    	getLocation();
+    }
+
+	function clearForm() {
+		$("#names").empty();
+		// window.location.reload();
+	}
 		
-		function formSubmit() {
-			var yours = '';
-			var other = '';
-			var interest = '';
+	function formSubmit() {
+		var yours = '';
+		var other = '';
+		var interest = '';
 
-				yours = document.getElementById("yourPlace").value;
-				other = document.getElementById("otherPlace").value;
-				interest = document.getElementById("interestType").value;
+		yours = document.getElementById("yourPlace").value;
+		other = document.getElementById("otherPlace").value;
+		interest = document.getElementById("interestType").value;
 
-				findLatLong(yours, other, interest);
-			}
+		findLatLong(yours, other, interest);
+	}
 
 	function findLatLong(yours, other, interest) {
 		var latitude = 0;
@@ -137,12 +147,31 @@
 							content += venues.location.city + '%2C%20' + venues.location.state;
 							content += '&q=' + venues.name + '\">';
 							content += 'Find on Foursquare!</a><br />';
-							content += '</p> </br> </center>';
+							content += '</p> </center>';
 							$(content).appendTo("#names");
 				       });
 				});
 	}
 
+ </script>
+
+ <script>
+	function getLocation()
+	{
+		if (navigator.geolocation)
+		{
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		}
+		else {
+			alert("Sorry, geolocation is not supported by this browser.");
+		}
+	}
+	function showPosition(position)
+	{
+	  	var whereAmI = "Latitude: " + position.coords.latitude;
+	  	whereAmI += ", Longitude: " + position.coords.longitude; 
+	  	alert(whereAmI);
+	}
  </script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -176,7 +205,9 @@
 			<label for="interestType">Place of interest? </label>
 			<input type="text" id="interestType" name="interestType" size="25" maxLength="160"></input>
 			<br /> <br />
-			<input type="reset" id="reset" name="reset" value="Clear" onClick="window.location.reload()">
+			<input type="button" id="button" name="button" value="Find me!" onClick="findMe()">
+			<br />
+			<input type="reset" id="reset" name="reset" value="Clear" onClick="clearForm()">
 			<br />
 			<input type="submit" id="submit" name="submit" value="Let's go!" />
 			<br />

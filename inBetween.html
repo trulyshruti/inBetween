@@ -9,7 +9,7 @@
   <meta name="keywords" value="inBetween webapp HTML5 jquery geolocation javascript" />
 
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.ba-bbq.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery.ba-bbq.js"></script> -->
   <script type="text/javascript" src=""></script>
 
   <script type="text/javascript"
@@ -60,6 +60,57 @@
 		       });
 		});
 	</script> -->
+
+	<script>
+		
+		var yourLoc = document.getElementById("textarea1").value;
+		var otherLoc = document.getElementById("textarea2").value;
+
+
+
+		var lat = 40.7;
+		var lon = -74;
+		var lati = (lat).toString();
+		var longi = (lon).toString();
+		var query = 'mcdonalds';
+
+		var url = 'https://api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
+		// console.log(url);
+
+		$.getJSON(url,
+		    function(data) {
+		        $.each(data.response.venues, function(i,venues){
+		            content = '<center> <p> <br />';
+					if(venues.name != null) {
+						content += '&nbsp;' + venues.name + '<br />';
+					}
+					if(venues.location.address != null) {
+						content += '&nbsp;' + venues.location.address + '<br />';
+					}
+					if(venues.location.crossStreet != null) {
+						content += ' &nbsp;' + venues.location.crossStreet + '<br />';
+					}
+					if(venues.location.city != null) {
+						content += ' &nbsp;' + venues.location.city + ', ';
+					}
+					if(venues.location.state != null) {
+						content += ' &nbsp;' + venues.location.state + '';
+					}
+					if(venues.location.postalCode != null) {
+						content += ' &nbsp;' + venues.location.postalCode + '';
+					}
+					if(venues.location.distance != null) {
+						content += '<br /> &nbsp;' + venues.location.distance + '<br />';
+					}
+					if(venues.contact.phone != null) {
+						content += '&nbsp;' + venues.location.phone + '<br />';
+					}
+					// content += '<br /><br />';
+					content += '</p> </center>';
+					$(content).appendTo("#names");
+		       });
+		});
+	</script>
 
 	<!-- <script>
 		// var lat = 40.7;

@@ -8,6 +8,9 @@
   <meta name="description" content="textSaver.js" />
   <meta name="keywords" value="textsaver jquery plugin javascript" />
   <script src="js/jquery.min.js"></script>
+  <script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=TRUE>
+    </script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
   
 </head>
@@ -43,12 +46,17 @@
 	
 	<div id="names"></div>
 	<script>
+
+		var yourLoc = document.getElementById("textarea1").value;
+		var otherLoc = document.getElementById("textarea2").value;
+		
 		// var lat = 40.7;
 		// var long = -74;
 		var lat = -26.45;
 		var long = 97.19;
-		var quer = 'mcdonalds';
-$.getJSON('https://api.foursquare.com/v2/venues/search?ll='+lat+','+long+'&query='+quer+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
+		// var query = 'mcdonalds';
+		
+$.getJSON('https://api.foursquare.com/v2/venues/search?ll='+lat+','+long+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
 			function(data) {
 				$.each(data.response.venues, function(i,venues){
 					// content = '<p>' + venues.name + '</p>';

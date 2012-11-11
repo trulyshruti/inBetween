@@ -50,10 +50,32 @@
 	</div>
 	
 	<div id="names"></div>
+
+
+	<!-- <script>
+		$.getJSON('https://api.foursquare.com/v2/venues/search?ll=40.7,-74&query=mcdonalds&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
+		    function(data) {
+		        $.each(data.response.venues, function(i,venues){
+		            content = '<p>' + venues.name + '</p>';
+		            $(content).appendTo("#names");
+		       });
+		});
+	</script> -->
+
 	<script>
+
+		// var yourLoc = document.getElementById("textarea1").value;
+		// var otherLoc = document.getElementById("textarea2").value;
+		// var poi = document.getElementById("textarea3").value;
+
+		// var yourLoc = $("textarea1");
+		// var otherLoc = $("textarea2");
+		// var poi = $("textarea3");
 
 		var yourLoc = document.getElementById("textarea1").value;
 		var otherLoc = document.getElementById("textarea2").value;
+
+		// console.log('' + yourLoc + '' + otherLoc + '' + poi + '');
 		
 		// var lat = 40.7;
 		// var long = -74;
@@ -61,11 +83,8 @@
 		var long = 97.19;
 		// var query = 'mcdonalds';
 
-		var url = 'https://api.foursquare.com/v2/venues/search?ll=';
-		url += '' + lat;
-		url += ',';
-		url += '' + long;
-		url += '&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
+		var url = 'https://api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
+		// console.log(url);
 		
 $.getJSON(url,
 			function(data) {

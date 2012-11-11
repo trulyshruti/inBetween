@@ -40,7 +40,6 @@ function printLocs(lati, longi, query){
 					content += 'Find on Foursquare!</a><br />';
 					content += '</p> </br> </center>';
 					$(content).appendTo("#names");
-					$(content).appendTo("#names");
 		       });
 		});
 }

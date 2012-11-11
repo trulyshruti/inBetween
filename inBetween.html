@@ -19,6 +19,7 @@
 
 	<div id="head">
 		<center>
+			<br />
 			Tell us where you are, and where your friend is. <br />
 			We'll help you find cool places <strong><em>inBetween</em></strong> you! <br />
 			<br />
@@ -97,13 +98,15 @@
          	return longitude;
     	}
 
-    	var yourLat = getLat(yourLoc);
-    	var otherLat = getLat(otherLoc);
+    	var yourLat = this.getLat(yourLoc);
+    	var otherLat = this.getLat(otherLoc);
     	var lat = (yourLat + otherLat)/2;
+    	// console.log(lat);
 
-    	var yourLon = getLon(yourLoc);
-    	var otherLon = getLon(otherLoc);
+    	var yourLon = this.getLon(yourLoc);
+    	var otherLon = this.getLon(otherLoc);
     	var lon = (yourLon + otherLon)/2;
+    	// console.log(lon);
 
 		var lati = (lat).toString();
 		var longi = (lon).toString();

@@ -76,6 +76,29 @@
     		console.log(poi);
     	} */
 
+    	function getLat(address) {
+    		var map = new GMap2(document.getElementById("map_canvas"));
+			var geocoder = new GClientGeocoder();
+			var latitude = 0;
+			var longitude = 0;
+			geocoder.getLatLng(address, function(point) {
+         	latitude = point.y;
+         	longitude = point.x;  
+         	});
+         	return latitude;
+    	}
+
+    	function getLon(address) {
+    		var map = new GMap2(document.getElementById("map_canvas"));
+			var geocoder = new GClientGeocoder();
+			var latitude = 0;
+			var longitude = 0;
+			geocoder.getLatLng(address, function(point) {
+         	latitude = point.y;
+         	longitude = point.x;  
+         	});
+         	return longitude;
+    	}
 
     	var yourLat = 41;
     	var otherLat = 40;

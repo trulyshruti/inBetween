@@ -116,9 +116,45 @@
 		
 		// var lat = 40.7;
 		// var long = -74;
-		var lat = -26.45;
-		var long = 97.19;
+		// var lat = -26.45;
+		// var long = 97.19;
 		// var query = 'mcdonalds';
+
+		function getLat(address) {
+    		var map = new GMap2(document.getElementById("map_canvas"));
+			var geocoder = new GClientGeocoder();
+			var latitude = 0;
+			var longitude = 0;
+			geocoder.getLatLng(address, function(point) {
+         	latitude = point.y;
+         	longitude = point.x;  
+         	});
+         	return latitude;
+    	}
+
+    	function getLon(address) {
+    		var map = new GMap2(document.getElementById("map_canvas"));
+			var geocoder = new GClientGeocoder();
+			var latitude = 0;
+			var longitude = 0;
+			geocoder.getLatLng(address, function(point) {
+         	latitude = point.y;
+         	longitude = point.x;  
+         	});
+         	return longitude;
+    	}
+
+    	var yourLat = 41;
+    	var otherLat = 40;
+    	var lat = (yourLat + otherLat)/2;
+
+    	var yourLon = -75;
+    	var otherLon = -73;
+    	var lon = (yourLon + otherLon)/2;
+
+		var lati = (lat).toString();
+		var longi = (lon).toString();
+		var query = poi;
 
 		var url = 'https://api.foursquare.com/v2/venues/search?ll='+lati+','+longi+'&query='+query+'&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101';
 		// console.log(url);

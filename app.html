@@ -9,19 +9,13 @@
   <meta name="keywords" value="inBetween webapp HTML5 jquery geolocation javascript" />
 
   <script type="text/javascript" src="js/jquery.min.js"> </script>
-  <script type="text/javascript" src="js/jquery.form.js"> </script>
-
-  <!-- <script type='text/javascript' src='http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyBBHnPSnGsWXVzwAlUhBQdb9WAw8HWB2uw&sensor=true'> </script> -->
-
   <script src="http://maps.google.com/maps/api/js?sensor=false"> </script>
 
-  <script type="text/javascript" src="js/geocode.js"> </script>
   <script type="text/javascript" src="js/findPlaces.js"> </script>
 
  <script> 
     $(document).ready(function() { 
-        	// $('#your_loc').ajaxForm(function() {});
-		}); 
+	}); 
 
     function getLat(address) {
         if (address) {
@@ -146,10 +140,10 @@
 		<center>
 		<form id="your_loc" method="post" action="javascript:formSubmit()">
 			<label for="yourPlace">Where are you now? </label>
-			<input type="text" id="yourPlace" name="yourPlace" size="25" maxLength="160"></input>
+			<input type="text" id="yourPlace" name="yourPlace" value="Princeton University" size="25" maxLength="160"></input>
 			<br />
 			<label for="otherPlace">Where's your friend? </label>
-			<input type="text" id="otherPlace" name="otherPlace" size="25" maxLength="160"></input>
+			<input type="text" id="otherPlace" name="otherPlace" value="Columbia University" size="25" maxLength="160"></input>
 			<br />
 			<label for="interestType">Place of interest? </label>
 			<input type="text" id="interestType" name="interestType" size="25" maxLength="160"></input>

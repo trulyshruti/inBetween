@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
+	<!-- <script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
 	<script>
 	  $(document).ready(function() {
 	  	$('#your_loc').textSaver();
@@ -29,24 +29,41 @@
 	  $(document).ready(function() {
 	  	$('#other_loc').textSaver();
 	  });
-	</script>
+	</script> -->
 	
 	<div id="top">
-		<!-- <h1>App</h1> -->
-		<!-- <p>Your place: </p> -->
+		<!-- <h1>App</h1> 
+		<p>Your place: </p>
 		<form id="your_loc" method="post" action="?submitted">
 			<label for="textarea1">Where are you now?: </label>
 			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
 			<input type="submit" value="Clear" />
-			<!-- <label>Type the above, then click to find the spot!</label> -->
+			<label>Type the above, then click to find the spot!</label>
 		</form>
-		<!-- <p>Other place: </p> -->
+		<p>Other place: </p>
 		<form id="other_loc" method="post" action="?submitted">
 			<label for="textarea2">Where's your friend? </label>
 			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
 			<input type="submit" value="Clear" />
-			<!-- <label>Type the above, then click to find the spot!</label> -->
+			<label>Type the above, then click to find the spot!</label> 
+		</form> -->
+
+		<!-- <center>
+		<form id="your_loc" method="post" action="?submitted">
+			<label for="textarea1">Where are you now?: </label>
+			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
+			<input type="submit" value="Clear" />
+			<br />
+			<label for="textarea2">Where's your friend? </label>
+			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
+			<input type="submit" value="Clear" />
+			<br />
+			<label for="textarea3">Place of interest? </label>
+			<textarea id="textarea3" name="textarea3" rows="1" cols="25"></textarea>
+			<input type="submit" value="Clear" />
+			<br />
 		</form>
+		</center> -->
 	</div>
 	
 	<div id="names"></div>
@@ -72,8 +89,28 @@
 		// var otherLoc = $("textarea2");
 		// var poi = $("textarea3");
 
-		var yourLoc = document.getElementById("textarea1").value;
-		var otherLoc = document.getElementById("textarea2").value;
+		// var yourLoc = document.getElementById("textarea1").value;
+		// var otherLoc = document.getElementById("textarea2").value;
+
+		/* var yourLat = 41;
+    	if (yourLoc === '' || yourLoc === ' '  || yourLoc === null); {
+    		yourLat = 0;
+    	}
+    	var otherLat = 40;
+    	if (otherLoc === '' || otherLoc === ' ' || otherLoc === null); {
+    		otherLat = 0;
+    	} 
+    	var lat = (yourLat + otherLat)/2;
+
+    	var yourLon = -75;
+    	if (yourLon === '' || yourLon === ' ' || yourLon === null); {
+    		yourLon = 0;
+    	} 
+    	var otherLon = -73;
+    	if (otherLon === '' || otherLon === ' ' || otherLon === null); {
+    		otherLon = 0;
+    	} 
+    	var lon = (yourLon + otherLon)/2; */
 
 		// console.log('' + yourLoc + '' + otherLoc + '' + poi + '');
 		

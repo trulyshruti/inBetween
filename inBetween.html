@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
+	<!-- <script type="text/javascript" src="js/textSaver-0.1.1.js"></script>
 	<script>
 	  $(document).ready(function() {
 	  	$('#your_loc').textSaver();
@@ -34,64 +34,57 @@
 	  $(document).ready(function() {
 	  	$('#place_type').textSaver();
 	  });
-	</script>
+	</script> -->
 
 	<div id="top">
-		<!-- <h1>App</h1> -->
-		<!-- <p>Your place: </p> -->
+		<center>
 		<form id="your_loc" method="post" action="?submitted">
 			<label for="textarea1">Where are you now?: </label>
 			<textarea id="textarea1" name="textarea1" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
-			<!-- <label>Type the above, then click to find the spot!</label> -->
-		</form>
-		<!-- <p>Other place: </p> -->
-		<form id="other_loc" method="post" action="?submitted">
+			<input type="submit" value="Submit" />
+			<br />
 			<label for="textarea2">Where's your friend? </label>
 			<textarea id="textarea2" name="textarea2" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
-			<!-- <label>Type the above, then click to find the spot!</label> -->
-		</form>
-		<!-- <p>Other place: </p> -->
-		<form id="place_type" method="post" action="?submitted">
+			<input type="submit" value="submit" />
+			<br />
 			<label for="textarea3">Place of interest? </label>
 			<textarea id="textarea3" name="textarea3" rows="1" cols="25"></textarea>
-			<input type="submit" value="Clear" />
-			<!-- <label>Type the above, then click to find the spot!</label> -->
+			<input type="submit" value="Submit" />
+			<br />
 		</form>
+		</center>
 	</div>
 	
 	<div id="names"></div>
 
-	<!-- <script>
-		$.getJSON('https://api.foursquare.com/v2/venues/search?ll=40.7,-74&query=mcdonalds&client_id=2POUFAUU4ZBJ2MTDOY3S2YHR2NIT52FYW0LUTPHBMNTJFJNQ&client_secret=YFDZI1YWV3ZI5S5SPM2DZJEQIEBPIDJ5XFZBWTIKIQZVQNYM&v=20120101',
-		    function(data) {
-		        $.each(data.response.venues, function(i,venues){
-		            content = '<p>' + venues.name + '</p>';
-		            $(content).appendTo("#names");
-		       });
-		});
-	</script> -->
-
 	<script>
 
-		var yourLoc = 0;
-		var otherLoc = 0;
+		var yourLoc = '';
+		var otherLoc = '';
 		var poi = '';
 
-		$("#textarea1").onblur = function() { 
+		/* $("#textarea1").blur = function() { 
     		yourLoc = this.value;
+    		console.log(yourLoc);
     	}
-    	$("#textarea2").onblur = function() { 
+    	$("#textarea2").blur = function() { 
     		otherLoc = this.value;
+    		console.log(otherLoc);
     	}
-    	$("#textarea3").onblur = function() { 
+    	$("#textarea3").blur = function() { 
     		poi = this.value;
-    	} 
-    	console.log(yourLoc);
+    		console.log(poi);
+    	} */
 
-		var lat = 40.7;
-		var lon = -74;
+
+    	var yourLat = 41;
+    	var otherLat = 40;
+    	var lat = (yourLat + otherLat)/2;
+
+    	var yourLon = -75;
+    	var otherLon = -73;
+    	var lon = (yourLon + otherLon)/2;
+
 		var lati = (lat).toString();
 		var longi = (lon).toString();
 		var query = poi;

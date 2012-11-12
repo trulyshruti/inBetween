@@ -17,7 +17,7 @@ But you don't have to "Clear" to resubmit - just hit "Let's go!" again.
 
 ### How does it work?
 
-HTML5 Geolocation is used to "Find me!" Google Maps API is used to locate addresses. Foursquare API is used to find the venues.
+The app itself is built in HTML, CSS, JavaScript, and jQuery. HTML5 Geolocation is used to locate the user. Google Maps API is used to locate addresses. Foursquare API is used to find the venues.
 
 ### Who made this app?
 

@@ -15,4 +15,4 @@ The app itself is built in HTML, CSS, JavaScript, and jQuery. HTML5 Geolocation 
 
 ### Who made this app?
 
-This app was built by Shruti Kulkarni of Columbia University, for HackPrinceton in Fall 2012.
+This app was built by Shruti Kulkarni of Columbia University for HackPrinceton in Fall 2012.

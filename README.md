@@ -1,5 +1,4 @@
-inBetween
-=========
+# inBetween
 
 Find places of interest in-between yourself and a friend with inBetween!
 

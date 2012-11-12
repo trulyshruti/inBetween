@@ -17,11 +17,8 @@ But you don't have to "Clear" to resubmit - just hit "Let's go!" again.
 
 ### How does it work?
 
-HTML5 Geolocation is used to "Find me!" 
-Google Maps API is used to locate addresses.
-Foursquare API is used to find the venues.
+HTML5 Geolocation is used to "Find me!" Google Maps API is used to locate addresses. Foursquare API is used to find the venues.
 
 ### Who made this app?
 
-This app was built by Shruti Kulkarni of Columbia University.
-This app was built for the HackPrinceton hackathon in Fall 2012.
+This app was built by Shruti Kulkarni of Columbia University, for HackPrinceton in Fall 2012.

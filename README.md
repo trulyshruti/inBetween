@@ -8,6 +8,6 @@ Got a specific venue in mind? Enter the name or type of place, then submit. Not 
 
 Hit "Clear" at any time to clear the form and addresses on-screen. But you don't have to "Clear" to resubmit - just hit "Let's go!" again.
 
-The app itself is built in HTML, CSS, JavaScript, and jQuery. It uses HTML5 Geolocation, the Google Maps API, and the Foursquare API, to get the middle location and find venues nearby.
+The app itself is built in HTML, CSS, JavaScript, and jQuery. It uses HTML5 Geolocation as well as the Google Maps and Foursquare APIs.
 
 This app was built by HackPrinceton in Fall 2012.

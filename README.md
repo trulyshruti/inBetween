@@ -8,10 +8,6 @@ Got a specific venue in mind? Enter the name or type of place, then submit. Not 
 
 Hit "Clear" at any time to clear the form and addresses on-screen. But you don't have to "Clear" to resubmit - just hit "Let's go!" again.
 
-### How does it work?
-
 The app itself is built in HTML, CSS, JavaScript, and jQuery. HTML5 Geolocation is used to locate the user. Google Maps API is used to process address searches and locate initial starting points.. Foursquare API is used to find the venues.
-
-### Who made this app?
 
 This app was built by Shruti Kulkarni of Columbia University for HackPrinceton in Fall 2012.

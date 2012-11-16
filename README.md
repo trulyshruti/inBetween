@@ -10,4 +10,4 @@ Hit "Clear" at any time to clear the form and addresses on-screen. But you don't
 
 The app itself is built in HTML, CSS, JavaScript, and jQuery. It uses HTML5 Geolocation as well as the Google Maps and Foursquare APIs.
 
-This app was built at HackPrinceton in Fall 2012.
+inBetween was built at HackPrinceton in Fall 2012.
